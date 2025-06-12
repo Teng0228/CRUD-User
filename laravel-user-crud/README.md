@@ -22,26 +22,35 @@ This is a Laravel-based application that provides both a web interface and a RES
 
 ## ⚙️ Project Setup Instructions (using XAMPP + VSCode)
 
-### 1. Clone the repository
+### 1.Run XAMPP and Download file for link
 
-- git clone https://github.com/Teng0228/CRUD-User.git
-- cd laravel-user-crud
+- Click start the Apache and Mysql
+- create empty file to put downloaded file
 
----
+--- 
 
-### 2. Install PHP dependencies
+### 2. Open VsCode
+
+- Open file "laravel-user-crud"
+- Click "new Terminal"
+- cd the file path until find "laravel-user-crud"
+
+--- 
+
+
+### 3. Install PHP dependencies
 
 - composer install
 
 ---
 
-### 3. Generate the application key
+### 4. Generate the application key
 
 - php artisan key:generate
 
 ---
 
-### 4. Configure .env for XAMPP MySQL
+### 5. Configure .env for XAMPP MySQL
 
 - DB_CONNECTION=mysql
 - DB_HOST=127.0.0.1
@@ -52,13 +61,16 @@ This is a Laravel-based application that provides both a web interface and a RES
 
 ---
 
-### 5.Database migrations
+
+### 6.Database migrations
 
 - Import the database given that name "user_crud.sql"
 - Or use command "php artisan migrate" to try add by own
 
+--- 
 
-### 6.Serve the application
+
+### 7.Serve the application
 
 php artisan serve
 - Visit: http://localhost:8000
