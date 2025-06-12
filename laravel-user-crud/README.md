@@ -102,31 +102,27 @@ Ensure UserFactory.php exists and matches your actual database schema.
 app/
 ├── Http/
 │ ├── Controllers/
-│ │ ├── Api/
-│ │ │ └── UserController.php # API logic
+│ │ ├── Api/UserController.php # API logic
 │ │ ├── ExportController.php # Excel export
 │ │ └── UserManagementController.php # Web interface
 │ └── Requests/
-│ ├── StoreUserRequest.php # Validation for create
-│ └── UpdateUserRequest.php # Validation for update
+│ ├── StoreUserRequest.php # Store user validation
+│ └── UpdateUserRequest.php # Update user validation
 
 routes/
-├── web.php # Blade view routes
+├── web.php # Web (Blade) routes
 └── api.php # API routes
 
 tests/
-└── Feature/
-└── UserApiTest.php # API feature tests
+└── Feature/UserApiTest.php # Feature tests for the API
 
 resources/views/users/
-├── index.blade.php # List view
-├── create.blade.php # Create form
-├── edit.blade.php # Edit form
+├── index.blade.php # User list view
+├── create.blade.php # Create user view
+├── edit.blade.php # Edit user view
 └── form.blade.php # Shared form partial
 
-user_crud.sql # MySQL sample data
-
-
+user_crud.sql # Sample MySQL export
 ---
 
 ✅ Assumptions and Design Choices
