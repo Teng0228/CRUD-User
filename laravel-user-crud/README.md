@@ -52,9 +52,11 @@ DB_PASSWORD=
 
 ---
 
-### 5.Run database migrations
+### 5.Database migrations
 
-php artisan migrate
+- Import the database give name "user_crud.sql"
+- Or use command "php artisan migrate" to try add by own
+
 
 ### 6.Serve the application
 
@@ -64,16 +66,16 @@ php artisan serve
 ---
 
 🔗 API Endpoints Documentation
-Base URL: http://localhost:8000/api/users
+Base URL: http://localhost:8000/users
 
-Method	Endpoint	Description
-GET	/api/users	List users
-POST	/api/users	Create a new user
-GET	/api/users/{id}	Get single user by ID
-PUT	/api/users/{id}	Update existing user
-DELETE	/api/users/{id}	Delete user
-DELETE	/api/users/bulk-delete	Bulk delete multiple
-GET	/api/users-export	Export users to Excel
+- Method	Endpoint	            Description
+- GET	    /api/users	            List users
+- POST	    /api/users	            Create a new user
+- GET	    /api/users/{id}	        Get single user by ID
+- PUT	    /api/users/{id}	        Update existing user
+- DELETE	/api/users/{id}	        Delete user
+- DELETE	/api/users/bulk-delete	Bulk delete multiple
+- GET	    /api/users-export	    Export users to Excel
 
 All requests expect and return JSON.
 
@@ -97,28 +99,33 @@ Ensure UserFactory.php exists and matches your actual database schema.
 ---
 
 📁 Folder Structure
-├── app/
-│   └── Http/
-│       ├── Controllers/
-│       │   ├── Api/UserController.php     # API logic
-│       │   ├── ExportController.php       # Excel export
-│       │   └── UserManagementController.php # Web interface
-│       │ 
-│       ├──  Requests/
-|       |      ├── StoreUserRequest.php     # Store User Request
-│       │      ├── UpdateUserRequest.php    # Update User Request
-├── routes/
-│   ├── web.php       # Blade view routes
-│   └── api.php       # API routes
-│
-├── tests/
-│   └── Feature/UserApiTest.php
-│
-├── resources/views/users/
-│   ├── index.blade.php
-│   ├── create.blade.php
-│   └── edit.blade.php
-    └── form.blade.php
+app/
+├── Http/
+│ ├── Controllers/
+│ │ ├── Api/
+│ │ │ └── UserController.php # API logic
+│ │ ├── ExportController.php # Excel export
+│ │ └── UserManagementController.php # Web interface
+│ └── Requests/
+│ ├── StoreUserRequest.php # Validation for create
+│ └── UpdateUserRequest.php # Validation for update
+
+routes/
+├── web.php # Blade view routes
+└── api.php # API routes
+
+tests/
+└── Feature/
+└── UserApiTest.php # API feature tests
+
+resources/views/users/
+├── index.blade.php # List view
+├── create.blade.php # Create form
+├── edit.blade.php # Edit form
+└── form.blade.php # Shared form partial
+
+user_crud.sql # MySQL sample data
+
 
 ---
 
