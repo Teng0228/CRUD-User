@@ -82,34 +82,31 @@ All requests expect and return JSON.
 📄 Swagger API Documentation
 To generate Swagger documentation:
 
-
-Copy
-Edit
 php artisan l5-swagger:generate
-Then open in browser:
 
-bash
-Copy
-Edit
+Then open in browser:
 http://localhost:8000/api/documentation
+
+---
+
 🧪 Run Unit Tests
-bash
-Copy
-Edit
+
 php artisan test
 Ensure UserFactory.php exists and matches your actual database schema.
 
+---
+
 📁 Folder Structure
-bash
-Copy
-Edit
 ├── app/
 │   └── Http/
 │       ├── Controllers/
 │       │   ├── Api/UserController.php     # API logic
 │       │   ├── ExportController.php       # Excel export
 │       │   └── UserManagementController.php # Web interface
-│
+│       │ 
+│       ├──  Requests/
+|       |      ├── StoreUserRequest.php     # Store User Request
+│       │      ├── UpdateUserRequest.php    # Update User Request
 ├── routes/
 │   ├── web.php       # Blade view routes
 │   └── api.php       # API routes
@@ -121,7 +118,19 @@ Edit
 │   ├── index.blade.php
 │   ├── create.blade.php
 │   └── edit.blade.php
+    └── form.blade.php
 
+---
 
+✅ Assumptions and Design Choices
+
+- Database Structure: The users table uses Laravel's default migration.
+- Authentication: API routes are public for demo purposes.
+- Excel Export: Done using PhpSpreadsheet, outputting a users_export.xlsx file with basic columns.
+- Separation of Concerns:
+- Web views managed in UserManagementController
+- API logic lives in Api\UserController
+- Testing: PHPUnit used for API feature tests. Data is seeded using UserFactory.
+- Swagger: All API methods are annotated with OpenAPI for L5 Swagger.
 
 
